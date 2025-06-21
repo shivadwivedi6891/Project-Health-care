@@ -1,0 +1,85 @@
+/* Login Page Layout */
+.login-page {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+/* Container */
+.login-container {
+  max-width: 500px;
+}
+
+/* Card Design */
+.login-card {
+  background-color: #ffffff; /* previously: var(--card-color) */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* previously: var(--shadow) */
+  padding: 2rem;
+}
+
+.login-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #53394f; /* previously: var(--primary-color) */
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dee2e6; /* previously: var(--border-color) */
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #53394f; /* previously: var(--primary-color) */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Button Full Width */
+.btn-block {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+}
+
+/* Error Message */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+/* Footer */
+.login-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.login-footer a {
+  color: #53394f; /* previously: var(--primary-color) */
+  font-weight: 500;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}

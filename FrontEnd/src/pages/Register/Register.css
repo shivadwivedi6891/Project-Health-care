@@ -1,0 +1,119 @@
+/* Register Page Layout */
+
+@import "tailwindcss";
+.register-page {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+/* Container for Form */
+.register-container {
+  max-width: 600px;
+}
+
+/* Card Styling */
+.register-card {
+  background-color: #ffffff; /* White card */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  padding: 2rem;
+}
+
+/* Card Title */
+.register-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #53394f; /* Primary color */
+}
+
+/* Two-column Form Row */
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+/* Each Field Takes Equal Space */
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Form Group Block */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Form Label */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* Input Field */
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #dee2e6; /* Light gray border */
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Focus State */
+.form-control:focus {
+  border-color: #53394f; /* Primary focus border */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* Full Width Button */
+.btn-block {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+}
+
+/* Error Message Box */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+/* Footer Text Under Form */
+.register-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Footer Links */
+.register-footer a {
+  color: #53394f; /* Primary link color */
+  font-weight: 500;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Friendly Form Layout */
+@media (max-width: 576px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+
+
+
+
+
+

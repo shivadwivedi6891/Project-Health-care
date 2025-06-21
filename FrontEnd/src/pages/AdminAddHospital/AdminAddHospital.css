@@ -1,0 +1,112 @@
+
+.admin-page {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+
+.admin-container {
+  max-width: 700px;
+}
+
+/* Card that holds the admin content */
+.admin-card {
+  background-color: #ffffff; 
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  padding: 2rem;
+}
+
+/* Title inside the admin card */
+.admin-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #007bff; 
+}
+
+
+.form-row {
+  display: flex;
+  gap: 1rem; 
+  margin-bottom: 0;
+}
+
+
+.form-row .form-group {
+  flex: 1;
+}
+
+
+.form-tip {
+  background-color: #f8f9fa; 
+  border-left: 4px solid #007bff; 
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 0.25rem 0.25rem 0; 
+}
+
+
+.form-tip p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #212529; 
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+}
+
+/* Success message box */
+.success-message {
+  background-color: #d4edda; 
+  color: #155724; 
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+/* Error message box */
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24; 
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+/* Footer section for admin page */
+.admin-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Link styled as button */
+.btn-link {
+  background: none;
+  border: none;
+  color: #007bff; 
+  text-decoration: underline;
+  padding: 0;
+  font-size: 1rem;
+}
+
+/* Hover effect for btn-link */
+.btn-link:hover {
+  color: #0056b3; 
+}
+
+/* Responsive styles for small screens */
+@media (max-width: 576px) {
+  .form-row {
+    flex-direction: column; 
+    gap: 0; 
+  }
+}

@@ -1,0 +1,115 @@
+/* Container for the whole QR page */
+.qr-page {
+  min-height: calc(100vh - 160px); /* Full viewport height minus 160px */
+  display: flex;
+  align-items: center;  /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Limit the width of the QR container */
+.qr-container {
+  max-width: 600px;
+}
+
+/* Card that holds the QR content */
+.qr-card {
+  background-color: #ffffff; /* Replace var(--card-color) with white */
+  border-radius: 0.5rem; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Replace var(--shadow) with a basic shadow */
+  padding: 2rem; /* Space inside the card */
+  text-align: center; /* Center text */
+}
+
+/* Title inside the card */
+.qr-card h2 {
+  color: #007bff; /* Replace var(--primary-color) with blue */
+  margin-bottom: 1.5rem; /* Space below */
+}
+
+/* Loading text style */
+.loading-indicator {
+  padding: 2rem;
+  color: #6c757d; /* Replace var(--light-text) with gray */
+  font-style: italic;
+}
+
+/* Space below main content */
+.qr-content {
+  margin-bottom: 2rem;
+}
+
+/* Container around the QR image */
+.qr-image-container {
+  margin: 1.5rem auto; /* Center horizontally with vertical margin */
+  padding: 1rem;
+  background-color: white;
+  display: inline-block; /* Makes width fit content */
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* The QR image itself */
+.qr-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain; /* Keep aspect ratio */
+}
+
+/* Description under the QR */
+.qr-description {
+  margin-bottom: 1.5rem;
+}
+
+/* Paragraphs inside description */
+.qr-description p {
+  margin-bottom: 0.5rem;
+}
+
+/* Note text style */
+.qr-note {
+  font-size: 0.9rem; /* Slightly smaller */
+  color: #6c757d; /* Gray text */
+  font-style: italic;
+}
+
+/* Instructions box */
+.qr-instructions {
+  text-align: left;
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Heading inside instructions */
+.qr-instructions h3 {
+  color: #007bff; /* Blue color */
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Ordered list inside instructions */
+.qr-instructions ol {
+  padding-left: 1.5rem; /* Indent */
+}
+
+/* List items spacing */
+.qr-instructions li {
+  margin-bottom: 0.5rem;
+}
+
+/* Container for action buttons */
+.qr-actions {
+  margin-top: 1.5rem;
+}
+
+/* Error message box style */
+.error-message {
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24; /* Dark red text */
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0.25rem;
+}

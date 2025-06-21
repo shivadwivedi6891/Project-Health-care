@@ -1,0 +1,157 @@
+/* Profile Page Layout */
+.profile-page {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+/* Container */
+.profile-container {
+  max-width: 700px;
+}
+
+/* Card */
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+/* Header inside profile */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.profile-header h2 {
+  color: #53394f;
+  margin-bottom: 0;
+}
+
+/* Outline Button */
+.btn-outline {
+  color: #53394f;
+  background-color: transparent;
+  border: 1px solid #53394f;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  color: white;
+  background-color: #53394f;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  color: #333333;
+  background-color: #e9ecef;
+  border-color: #e9ecef;
+}
+
+.btn-secondary:hover {
+  background-color: #dee2e6;
+  border-color: #dee2e6;
+}
+
+/* Form Layout */
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Action Buttons Alignment */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Details Block */
+.profile-details {
+  margin-top: 1.5rem;
+}
+
+.detail-group {
+  margin-bottom: 1.5rem;
+}
+
+.detail-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.detail-row .detail-group {
+  flex: 1;
+}
+
+.detail-label {
+  display: block;
+  font-weight: 600;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
+}
+
+.detail-value {
+  font-size: 1.1rem;
+}
+
+/* Messages */
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+/* Loading View */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 160px);
+  font-size: 1.2rem;
+}
+
+/* Responsive Layout */
+@media (max-width: 576px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .form-row, .detail-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
