@@ -2,12 +2,15 @@ using Google.Protobuf.WellKnownTypes;
 using HealthRecord.Data.Entities;
 using HealthRecord.Services;
 using HealthRecord.Services.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace HealthRecordApi.Controllers
 {
+
     [Route("api/[Controller]")]
+    [Authorize(Roles = "Doctor")]
     [ApiController]
 
     public class DoctorController : ControllerBase
@@ -18,29 +21,38 @@ namespace HealthRecordApi.Controllers
         {
             _doctorService = doctorService;
         }
-
+        [AllowAnonymous]
         [HttpPost("registerDoc")]
 
         public async Task<IActionResult> Register([FromBody] RegisterDoctorDto doctorDto)
         {
             var doctorId = await _doctorService.RegisterDoctorAsync(doctorDto);
 
-            return Ok( new{ DoctorId = doctorId });
-            
+            return Ok(new { DoctorId = doctorId });
+
         }
 
-//  [HttpPost("Doclogin")]
-//         public async Task<IActionResult> DocLogin([FromBody] DocLoginDto docLoginDto)
-//         {
-//             try
-//             {
-//                 var doctorId = await _doctorService.LoginDoctorAsync(docLoginDto);
-//                 return Ok(new { DoctorId = doctorId });
-//             }
-//             catch (Exception ex)
-//             {
-//                 return BadRequest(new { Message = ex.Message });
-//             }
-//         }
+        [HttpGet("Profile/{doctorId}")]
+
+        public async Task<IActionResult> GetProfile(int doctorId)
+        {
+            var doctor = await _doctorService.GetDoctorProfileAsync(doctorId);
+            return Ok(doctor);
+        }
+
+
+[AllowAnonymous]
+        [HttpGet("getAllDoctor")]
+
+        public async Task<IActionResult> GetAllDoctors()
+        {
+           var Doctors =  await _doctorService.GetAllDoctorsAsync();
+            return Ok(Doctors);
+       }
+
+
+
+
+
     }
 }

@@ -5947,11 +5947,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecordApi\\HealthRecordApi.csproj",
+      "projectUniqueName": "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecordApi\\HealthRecordApi.csproj",
       "projectName": "HealthRecordApi",
-      "projectPath": "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecordApi\\HealthRecordApi.csproj",
+      "projectPath": "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecordApi\\HealthRecordApi.csproj",
       "packagesPath": "C:\\Users\\dwive\\.nuget\\packages\\",
-      "outputPath": "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecordApi\\obj\\",
+      "outputPath": "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecordApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5972,11 +5972,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj": {
-              "projectPath": "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj"
+            "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj": {
+              "projectPath": "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj"
             },
-            "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Services\\HealthRecord.Services.csproj": {
-              "projectPath": "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Services\\HealthRecord.Services.csproj"
+            "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Services\\HealthRecord.Services.csproj": {
+              "projectPath": "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Services\\HealthRecord.Services.csproj"
             }
           }
         }

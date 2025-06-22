@@ -19,12 +19,23 @@ namespace HealthRecordApi.Controllers
 
         [Authorize]
 
-        [HttpGet("qr/{userId}")]
-        public async Task<IActionResult> GenerateQR(int userId)
-        {
-            var emergencyInfo = await _userService.GetEmergencyInfoAsync(userId);
-            var qrCode = await _qrCodeService.GenerateQRCodeAsync(emergencyInfo);
-            return File(qrCode, "image/png");
-        }
+        // [HttpGet("qr/{userId}")]
+        // public async Task<IActionResult> GenerateQR(int userId)
+        // {
+        //     var emergencyInfo = await _userService.GetEmergencyInfoAsync(userId);
+        //     var qrCode = await _qrCodeService.GenerateQRCodeAsync(emergencyInfo);
+        //     return File(qrCode, "image/png");
+        // }
+
+        [Authorize(Roles = "User")]
+[HttpGet("qr")]
+public async Task<IActionResult> GenerateQR()
+{
+    var userId = int.Parse(User.FindFirst("id")!.Value); // Securely from token
+    var emergencyInfo = await _userService.GetEmergencyInfoAsync(userId);
+    var qrCode = await _qrCodeService.GenerateQRCodeAsync(emergencyInfo);
+    return File(qrCode, "image/png");
+}
+
     }
 }
