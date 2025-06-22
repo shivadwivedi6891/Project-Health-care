@@ -6,5 +6,14 @@ namespace HealthRecord.Data.Repositories
 
         Task<int> RegisterDoctorAsync(Doctor doctor);
         Task<Doctor?> GetDoctorByEmailAsync(string email);
+
+        Task<Doctor> GetDoctorProfileAsync(int doctorId);
+
+        Task<List<Doctor>> GetAllDoctorsAsync();
+
+
+        Task<IEnumerable<Doctor>> GetAllDocsAsync();
+
+        Task<IEnumerable<Doctor>> GetAllPendingDoctorsAsync();
     }
 }

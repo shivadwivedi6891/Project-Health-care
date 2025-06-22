@@ -9,7 +9,7 @@ import './Login.css';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { user, login } = useAuth();  
+  const {  login } = useAuth();  
 
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
@@ -26,14 +26,24 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const userData = await login(formData); // returns { userId, role }
+      const userData = await login(formData); 
       console.log('Logged in user:', userData);
+      console.log("id",userData.id);
+      
 
+      // if (userData.role === 'Doctor') {
+      //   navigate(`/docDashboard/${userData.id}`);
+      // } else {
+      //   navigate(`/dashboard/${userData.id}`); 
+      // }
       if (userData.role === 'Doctor') {
-        navigate(`/docDashboard/${doctorData.doctorId}`);
-      } else {
-        navigate(`/dashboard/${userData.userId}`); // ✅ this will now work
-      }
+  navigate(`/docDashboard/${userData.id}`);
+} else if (userData.role === 'Admin') {
+  navigate(`/adminDashboard/`);
+} else if(userData.role === 'User')
+  navigate(`/dashboard/`);  
+
+
     } catch (error) {
       console.error('Login error:', error);
       setError(error.message || 'Wrong credentials. Please try again.');

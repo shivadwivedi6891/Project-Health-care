@@ -1,82 +1,80 @@
-/* Container for the about page */
+
 .about-page {
-  min-height: calc(100vh - 160px); /* Full viewport height minus 160px */
+  min-height: calc(100vh - 160px); 
   display: flex;
-  align-items: center; /* Vertically center */
-  justify-content: center; /* Horizontally center */
+  align-items: center; 
+  justify-content: center; 
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-/* Limit the width of the about container */
+
 .about-container {
   max-width: 800px;
 }
 
-/* Card that holds the about content */
 .about-card {
-  background-color: #ffffff; /* Replace var(--card-color) with white */
-  border-radius: 0.5rem; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Replace var(--shadow) with simple shadow */
-  padding: 2rem; /* Inner spacing */
+  background-color: #ffffff; 
+  border-radius: 0.5rem; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  padding: 2rem;
 }
 
-/* Title inside the about card */
+
 .about-card h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #007bff; /* Replace var(--primary-color) with blue */
+  color: #007bff;
 }
 
-/* Main about content area */
+
 .about-content {
   margin-top: 1rem;
 }
 
-/* Paragraphs in about content */
 .about-content p {
   margin-bottom: 1.5rem;
-  line-height: 1.6; /* Space between lines */
+  line-height: 1.6; 
 }
 
-/* Subheadings in about content */
+
 .about-content h3 {
-  color: #007bff; /* Blue */
+  color: #007bff; 
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #dee2e6; /* Light gray border */
+  border-bottom: 1px solid #dee2e6; 
 }
 
-/* Feature list container */
+
 .feature-list {
-  list-style: none; /* Remove bullets */
+  list-style: none; 
   padding: 0;
   margin-bottom: 1.5rem;
 }
 
-/* Items in feature list */
+
 .feature-list li {
   margin-bottom: 1.5rem;
 }
 
-/* Strong text inside feature list items */
+
 .feature-list li strong {
-  display: block; /* Make strong text take full width */
+  display: block; 
   margin-bottom: 0.5rem;
-  color: #212529; /* Replace var(--text-color) with dark gray */
+  color: #212529;
   font-size: 1.1rem;
 }
 
-/* Paragraphs inside feature list items */
+
 .feature-list li p {
   margin: 0;
-  color: #6c757d; /* Replace var(--light-text) with gray */
+  color: #6c757d; 
 }
 
-/* Links inside about content */
+
 .about-content a {
-  color: #007bff; /* Blue */
+  color: #007bff; 
   font-weight: 500;
 }
 

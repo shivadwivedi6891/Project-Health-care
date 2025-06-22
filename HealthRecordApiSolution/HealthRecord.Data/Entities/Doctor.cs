@@ -20,8 +20,12 @@ namespace HealthRecord.Data.Entities
 
          [Required]
         public string Specialization { get; set; }
+
+
+
+        public bool IsApproved { get; set; } = false;
         
-                public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
 
     }

@@ -65,14 +65,6 @@ namespace HealthRecord.Services
             };
         }
 
-        // public async Task<int> LoginAsync(LoginDto loginDto)
-        // {
-        //     var user = await _userRepository.GetUserByEmailAsync(loginDto.Email);
-
-        //     if (user.PasswordHash != loginDto.Password) 
-        //         throw new Exception("Wrong credentials.");
-
-        //     return user.UserId;
-        // }
+    
     }
 }

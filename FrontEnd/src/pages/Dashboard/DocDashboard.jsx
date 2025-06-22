@@ -7,14 +7,14 @@ import { useAuth } from '../../context/AuthContext';
 import './Dashboard.css';
 
 const DocDashboard = () => {
-  const { user: authUser, setDoctor } = useAuth();
-  // const { userId } = useParams();
+  const { authData } = useAuth();
+ 
   const navigate = useNavigate();
 
-  const [doctor, setDoctorData] = useState(null);
+  const [doctorData, setDoctorData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [retryCount, setRetryCount] = useState(0);
+ 
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -24,34 +24,15 @@ const DocDashboard = () => {
     }
 
     try {
-      const decoded = jwtDecode(token);
-      const extractedUserId = decoded.id ||
-        decoded.userId ||
-        decoded[
-          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'
-        ];
-      const exp = decoded.exp * 1000;
-
-      if (Date.now() >= exp) {
-        localStorage.removeItem('token');
-        navigate('/login', { replace: true });
-        return;
-      }
-
-      setUser({ userId: extractedUserId });
-
-      if (!extractedUserId || !userId || extractedUserId.toString() !== userId.toString()) {
-        navigate(`/doctor-dashboard/${extractedUserId}`, { replace: true });
-        return;
-      }
+    
 
       const fetchDoctorData = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:5088/api/doctor/profile/${extractedUserId}`,
+            `http://localhost:5088/api/Doctor/profile/${authData.id}`,
             {
               headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${authData.token}`,
               },
             }
           );
@@ -59,15 +40,7 @@ const DocDashboard = () => {
           setError('');
         } catch (err) {
           console.error('Error fetching doctor data:', err);
-          if (retryCount < 2) {
-            setTimeout(() => {
-              setRetryCount((prev) => prev + 1);
-            }, 1000);
-          } else {
-            setError('Failed to load doctor data. Please log in again.');
-            localStorage.removeItem('token');
-            navigate('/login', { replace: true });
-          }
+        
         } finally {
           setLoading(false);
         }
@@ -79,7 +52,7 @@ const DocDashboard = () => {
       localStorage.removeItem('token');
       navigate('/login', { replace: true });
     }
-  }, [userId, retryCount, navigate, setUser]);
+  }, [authData.id]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -117,7 +90,7 @@ const DocDashboard = () => {
             transition={{ duration: 0.5 }}
             className="welcome-section"
           >
-            <h1>Welcome Dr. {doctor?.name || 'Doctor'}</h1>
+            <h1>Welcome Dr. {doctorData?.name || 'Doctor'}</h1>
             <p>Manage your patient records and appointments</p>
           </motion.div>
 

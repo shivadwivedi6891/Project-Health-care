@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-// import { registerUser } from '../../api/api';
+
 import './Register.css';
 import axios from 'axios';
 import "tailwindcss";

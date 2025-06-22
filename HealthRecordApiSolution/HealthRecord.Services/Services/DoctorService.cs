@@ -24,22 +24,27 @@ namespace HealthRecord.Services
                 Name = doctorDto.Name,
                 Email = doctorDto.Email,
                 Password = doctorDto.Password,
-                Specialization = doctorDto.Specialization
+                Specialization = doctorDto.Specialization,
+                IsApproved = false
+                
             };
 
             return await _doctorRepository.RegisterDoctorAsync(doctor);
         }
 
-        // public async Task<int> LoginDoctorAsync(DocLoginDto docLoginDto)
-        // {
-        //     var doctor = await _doctorRepository.GetDoctorByEmailAsync(docLoginDto.Email);
 
-        //     if (doctor.Password != docLoginDto.Password)
-        //      throw new Exception("Wrong credentials.");
 
-        //     return doctor.DoctorId;
-        //  }
+        public async Task<Doctor> GetDoctorProfileAsync(int doctorId)
+        {
+            return await _doctorRepository.GetDoctorProfileAsync(doctorId);
+        }
 
+
+
+        public async Task<List<Doctor>> GetAllDoctorsAsync()
+        {
+            return await _doctorRepository.GetAllDoctorsAsync();
+         }
 
 
     }

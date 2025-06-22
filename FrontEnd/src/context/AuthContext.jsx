@@ -4,32 +4,32 @@
 
 
 // AuthContext.js
+import { Navigate } from 'react-router-dom';
 import { createContext, useContext, useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  // const [doctor,setDoctor] = useState(null);
+  const [authData, setAuthData] = useState(()=>{
 
-  useEffect(() => {
+
+
     const token = localStorage.getItem('token');
-    if (token) {
-      try {
-        const decoded = jwtDecode(token);
-        const userId = decoded.userId;
-        const doctorId = decoded.doctorId;
-        const role = decoded.role || 'User';
-        setUser({ userId, role, token });
+     if (!token  ) {
+    return <Navigate to="/login" replace />;
+  }
 
-
-      } catch (err) {
-        console.error('Invalid token');
-        setUser(null);
+   
+      const decoded = jwtDecode(token);
+      return {
+        id : decoded['id'],
+        role : decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'],
+        token: token
       }
-    }
-  }, []);
+  }
+  );
+ 
 
   const login = async (credentials) => {
     const res = await fetch('http://localhost:5088/api/Auth/login', {
@@ -46,27 +46,31 @@ export const AuthProvider = ({ children }) => {
 
     const data = await res.json(); // { token, role, id }
     console.log("Raw login response from backend:", data);
-    const token = data.token;
-    const role = data.role;
-    const id = data.id;
+    
+
+    const{token,id,role}= data;
 
     localStorage.setItem('token', token);
-
-    setUser({ userId: id, role, token });
-    // setDoctor({doctorId: id, role, token});
+    const decoded = jwtDecode(token);
+    setAuthData({
+       id : decoded['id'],
+       role :decoded['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'],
+        token: token
+     });
+   
 
     
 
-    return { userId: id, role };
+    return {  id, role };
   };
 
   const logout = () => {
     localStorage.removeItem('token');
-    setUser(null);
+    setAuthData(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, setUser, login, logout  }}>
+    <AuthContext.Provider value={{ authData, login, logout  }}>
       {children}
     </AuthContext.Provider>
   );

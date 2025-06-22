@@ -24,17 +24,46 @@ namespace HealthRecord.Data.Repositories
 
         public async Task<Doctor> GetDoctorByEmailAsync(string email)
         {
-            var doctor = await  _context.Doctors
+            var doctor = await _context.Doctors
             .FirstOrDefaultAsync(d => d.Email == email);
 
-            if (doctor == null)
-            {
-                throw new Exception("Not Found");
-            }
+            // if (doctor == null)
+            // {
+            //     throw new Exception("Not Found");
+            // }
 
             return doctor;
 
-           
-       }
+
+        }
+
+        public async Task<Doctor> GetDoctorProfileAsync(int doctorId)
+        {
+            var doctor = await _context.Doctors
+        .FirstOrDefaultAsync(u => u.DoctorId == doctorId);
+
+            if (doctor == null)
+
+                throw new Exception("Doctor not Found");
+
+            return doctor;
+
+        }
+
+        public async Task<List<Doctor>> GetAllDoctorsAsync()
+        {
+            return await _context.Doctors.ToListAsync();
+        }
+       
+        public async Task<IEnumerable<Doctor>> GetAllDocsAsync()
+         {
+            return await _context.Doctors.ToListAsync();
+        }
+        public async Task<IEnumerable<Doctor>> GetAllPendingDoctorsAsync()
+         {
+            return await _context.Doctors.Where(b=> b.IsApproved==false)
+            .ToListAsync();
+
+        }
     }
 }

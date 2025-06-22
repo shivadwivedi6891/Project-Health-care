@@ -60,5 +60,11 @@ namespace HealthRecord.Data.Repositories
 
             return user;
         }
+
+
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
+         {
+            return await _context.Users.ToListAsync();
+        }
     }
 }

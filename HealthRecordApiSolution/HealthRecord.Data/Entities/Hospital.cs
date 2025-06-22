@@ -18,6 +18,6 @@ namespace HealthRecord.Data.Entities
         [Required]
 
         [StringLength(15)]
-        public string? ContactNumber { get; set; }
+        public string ContactNumber { get; set; }
     }
 }

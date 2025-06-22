@@ -1,87 +1,48 @@
+
+
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import { jwtDecode } from 'jwt-decode';
-import { useAuth } from '../../context/AuthContext'; // adjust path as needed
+import { useAuth } from '../../context/AuthContext';
 import './Dashboard.css';
 
 const Dashboard = () => {
-  const { user: authUser, setUser } = useAuth();
-  const { userId } = useParams();
+  const { authData } = useAuth();
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  const [user, setUserData] = useState(null);
+  const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [retryCount, setRetryCount] = useState(0);
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-
-    if (!token) {
-      navigate('/login', { replace: true });
-      return;
-    }
-
-    try {
-      const decoded = jwtDecode(token);
-      const extractedUserId = decoded.id ||
-        decoded.userId ||
-        decoded[
-          'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier'
-        ];
-      const exp = decoded.exp * 1000;
-
-      if (Date.now() >= exp) {
-        localStorage.removeItem('token');
-        navigate('/login', { replace: true });
-        return;
-      }
-
-      setUser({ userId: extractedUserId }); // sync context user
-
-      // if (extractedUserId.toString() !== userId.toString()) {
-      if (!extractedUserId || !userId || extractedUserId.toString() !== userId.toString()){
-        navigate(`/dashboard/${extractedUserId}`, { replace: true });
-        return;
-      }
-
-      const fetchUserData = async () => {
-        try {
-          const response = await axios.get(
-            `http://localhost:5088/api/user/profile/${extractedUserId}`,
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-          setUserData(response.data);
-          setError('');
-        } catch (err) {
-          console.error('Error fetching user data:', err);
-          if (retryCount < 2) {
-            setTimeout(() => {
-              setRetryCount((prev) => prev + 1);
-            }, 1000);
-          } else {
-            setError('Failed to load user data. Please log in again.');
-            localStorage.removeItem('token');
-            navigate('/login', { replace: true });
+    const fetchUserData = async () => {
+      try {
+        console.log("id is here "+ authData?.id)
+        const response = await axios.get(
+          `http://localhost:5088/api/user/GetProfile/`,
+          {
+            headers: {
+              Authorization: `Bearer ${authData?.token}`,
+            },
           }
-        } finally {
-          setLoading(false);
-        }
-      };
-
+        );
+        console.log("Fetched User:", response);
+        setUserData(response.data);
+        setError('');
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+        console.error(err);
+      }
+    };
       fetchUserData();
-    } catch (err) {
-      console.error('Invalid token:', err);
-      localStorage.removeItem('token');
-      navigate('/login', { replace: true });
-    }
-  }, [userId, retryCount, navigate, setUser]);
+  }, [authData?.id]);
+
+    
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -106,11 +67,16 @@ const Dashboard = () => {
     },
   };
 
-  if (loading) return <div className="loading">Loading...</div>;
-  if (error) return <div className="error">{error}</div>;
+
+
+if (error) {
+  return <div className="error">{error}</div>;
+}
+
 
   return (
     <div className="dashboard-page">
+      {console.log(authData.id)}
       <div className="dashboard-gradient">
         <div className="container dashboard-container">
           <motion.div
@@ -119,7 +85,7 @@ const Dashboard = () => {
             transition={{ duration: 0.5 }}
             className="welcome-section"
           >
-            <h1>Welcome, {user?.name || 'User'}</h1>
+            <h1>Welcome, {userData?.name || 'User'}</h1>
             <p>Manage your health information securely</p>
           </motion.div>
 
@@ -139,7 +105,7 @@ const Dashboard = () => {
             >
               <h2>Emergency QR</h2>
               <p>Access your emergency information via QR code</p>
-              <Link to={`/emergency-qr/${userId}`} className="btn-primary">
+              <Link to={`/emergency-qr/`} className="btn-primary">
                 View QR Code
               </Link>
             </motion.div>
@@ -154,7 +120,7 @@ const Dashboard = () => {
             >
               <h2>Profile</h2>
               <p>View and update your personal information</p>
-              <Link to={`/profile/${userId}`} className="btn-primary">
+              <Link to={`/profile/`} className="btn-primary">
                 Manage Profile
               </Link>
             </motion.div>
@@ -169,8 +135,36 @@ const Dashboard = () => {
             >
               <h2>Medical Reports</h2>
               <p>Upload and manage your medical reports</p>
-              <Link to={`/upload-medical-report/${userId}`} className="btn-primary">
+              <Link to={`/upload-medical-report/`} className="btn-primary">
                 Manage Reports
+              </Link>
+            </motion.div>
+            <motion.div
+              className="option-card"
+              variants={itemVariants}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: '0 10px 20px rgba(0, 0, 0, 0.15)',
+              }}
+            >
+              <h2>Hospital</h2>
+              <p>Get Nearby Hospital Details</p>
+              <Link to={`/hospitals/`} className="btn-primary">
+                Get Hospital
+              </Link>
+            </motion.div>
+            <motion.div
+              className="option-card"
+              variants={itemVariants}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: '0 10px 20px rgba(0, 0, 0, 0.15)',
+              }}
+            >
+              <h2>Doctors</h2>
+              <p>See Available Doctors</p>
+              <Link to={`/doctors/`} className="btn-primary">
+                Get Doctors
               </Link>
             </motion.div>
           </motion.div>
@@ -181,10 +175,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
-
-
-
-
-//------------------------------------/

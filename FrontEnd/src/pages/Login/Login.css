@@ -14,16 +14,16 @@
 
 /* Card Design */
 .login-card {
-  background-color: #ffffff; /* previously: var(--card-color) */
+  background-color: #ffffff; 
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* previously: var(--shadow) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
 }
 
 .login-card h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #53394f; /* previously: var(--primary-color) */
+  color: #53394f; 
 }
 
 /* Form Controls */
@@ -40,14 +40,14 @@
 .form-control {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #dee2e6; /* previously: var(--border-color) */
+  border: 1px solid #dee2e6; 
   border-radius: 0.25rem;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-control:focus {
-  border-color: #53394f; /* previously: var(--primary-color) */
+  border-color: #53394f; 
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   outline: none;
 }
@@ -76,7 +76,7 @@
 }
 
 .login-footer a {
-  color: #53394f; /* previously: var(--primary-color) */
+  color: #53394f; 
   font-weight: 500;
 }
 

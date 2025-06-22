@@ -6,8 +6,8 @@ import { useAuth } from '../../context/AuthContext';
 import './Profile.css';
 
 const Profile = () => {
-  const { user } = useAuth();
-  const userId = user?.userId;
+  const { authData } = useAuth();
+  const userId = authData?.id;
   const navigate = useNavigate();
 
   const [userData, setUserData] = useState(null);
@@ -67,7 +67,7 @@ const Profile = () => {
     setUpdating(true);
 
     try {
-      await updateUserProfile(userId, formData);
+      await updateUserProfile( formData);
       setSuccess('Profile updated successfully!');
       setUserData({ ...userData, ...formData });
       setIsEditing(false);
@@ -237,7 +237,7 @@ const Profile = () => {
 
               <button
                 className="btn btn-primary btn-block"
-                onClick={() => navigate(`/dashboard/${userId}`)}
+                onClick={() => navigate(`/dashboard/`)}
               >
                 Back to Dashboard
               </button>

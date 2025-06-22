@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_BASE = "http://localhost:5088/api";
 
-// ✅ Function to include token in headers
+
 const getAuthHeaders = () => {
   const token = localStorage.getItem("token");
   return {
@@ -12,13 +12,11 @@ const getAuthHeaders = () => {
   };
 };
 
-// ===============================
-// ✅ USER PROFILE
-// ===============================
+
 
 export const getUserProfile = async (userId) => {
   try {
-    const response = await axios.get(`${API_BASE}/User/profile/${userId}`, getAuthHeaders());
+    const response = await axios.get(`${API_BASE}/User/GetProfile/`, getAuthHeaders());
     return response.data;
   } catch (error) {
     console.error("Error fetching user profile:", error);
@@ -26,9 +24,9 @@ export const getUserProfile = async (userId) => {
   }
 };
 
-export const updateUserProfile = async (userId, data) => {
+export const updateUserProfile = async ( data) => {
   try {
-    const response = await axios.put(`${API_BASE}/User/profile/${userId}`, data, getAuthHeaders());
+    const response = await axios.put(`${API_BASE}/User/updateProfile/`, data, getAuthHeaders());
     return response.data;
   } catch (error) {
     console.error("Error updating user profile:", error);
@@ -36,13 +34,11 @@ export const updateUserProfile = async (userId, data) => {
   }
 };
 
-// ===============================
-// ✅ EMERGENCY QR
-// ===============================
 
-export const getEmergencyQR = async (userId) => {
+
+export const getEmergencyQR = async () => {
   try {
-    const response = await axios.get(`${API_BASE}/Emergency/qr/${userId}`, {
+    const response = await axios.get(`${API_BASE}/Emergency/qr/`, {
       ...getAuthHeaders(),
       responseType: "blob",
     });
@@ -53,9 +49,7 @@ export const getEmergencyQR = async (userId) => {
   }
 };
 
-// ===============================
-// ✅ HOSPITAL
-// ===============================
+
 
 export const addHospital = async (data) => {
   try {
@@ -67,9 +61,7 @@ export const addHospital = async (data) => {
   }
 };
 
-// ===============================
-// ✅ MEDICAL REPORT
-// ===============================
+
 
 export const uploadMedicalReport = async (userId, formData) => {
   try {

@@ -12,13 +12,9 @@ namespace HealthRecord.Services.Dtos
         [StringLength(500)]
         public string Address { get; set; }
 
-        // [Required]
-        // public double Latitude { get; set; }
-
-        // [Required]
-        // public double Longitude { get; set; }
+       
 
         [StringLength(15)]
-        public string? ContactNumber { get; set; }
+        public string ContactNumber { get; set; }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "52CwJ37cM04=",
+  "dgSpecHash": "+2uWnb/ooCc=",
   "success": true,
-  "projectFilePath": "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Services\\HealthRecord.Services.csproj",
+  "projectFilePath": "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Services\\HealthRecord.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dwive\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\dwive\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

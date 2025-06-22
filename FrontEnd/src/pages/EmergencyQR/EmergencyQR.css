@@ -1,37 +1,37 @@
 /* Container for the whole QR page */
 .qr-page {
-  min-height: calc(100vh - 160px); /* Full viewport height minus 160px */
+  min-height: calc(100vh - 160px); 
   display: flex;
-  align-items: center;  /* Vertically center */
-  justify-content: center; /* Horizontally center */
+  align-items: center; 
+  justify-content: center; 
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-/* Limit the width of the QR container */
+
 .qr-container {
   max-width: 600px;
 }
 
 /* Card that holds the QR content */
 .qr-card {
-  background-color: #ffffff; /* Replace var(--card-color) with white */
-  border-radius: 0.5rem; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Replace var(--shadow) with a basic shadow */
-  padding: 2rem; /* Space inside the card */
-  text-align: center; /* Center text */
+  background-color: #ffffff; 
+  border-radius: 0.5rem; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  padding: 2rem; 
+  text-align: center; 
 }
 
 /* Title inside the card */
 .qr-card h2 {
-  color: #007bff; /* Replace var(--primary-color) with blue */
-  margin-bottom: 1.5rem; /* Space below */
+  color: #007bff; 
+  margin-bottom: 1.5rem;
 }
 
 /* Loading text style */
 .loading-indicator {
   padding: 2rem;
-  color: #6c757d; /* Replace var(--light-text) with gray */
+  color: #6c757d; 
   font-style: italic;
 }
 
@@ -42,19 +42,19 @@
 
 /* Container around the QR image */
 .qr-image-container {
-  margin: 1.5rem auto; /* Center horizontally with vertical margin */
+  margin: 1.5rem auto; 
   padding: 1rem;
   background-color: white;
-  display: inline-block; /* Makes width fit content */
+  display: inline-block; 
   border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 /* The QR image itself */
 .qr-image {
   width: 200px;
   height: 200px;
-  object-fit: contain; /* Keep aspect ratio */
+  object-fit: contain; 
 }
 
 /* Description under the QR */
@@ -62,22 +62,21 @@
   margin-bottom: 1.5rem;
 }
 
-/* Paragraphs inside description */
 .qr-description p {
   margin-bottom: 0.5rem;
 }
 
 /* Note text style */
 .qr-note {
-  font-size: 0.9rem; /* Slightly smaller */
-  color: #6c757d; /* Gray text */
+  font-size: 0.9rem; 
+  color: #6c757d; 
   font-style: italic;
 }
 
 /* Instructions box */
 .qr-instructions {
   text-align: left;
-  background-color: #f8f9fa; /* Light gray background */
+  background-color: #f8f9fa; 
   padding: 1.5rem;
   border-radius: 0.5rem;
   margin-top: 1.5rem;
@@ -85,14 +84,14 @@
 
 /* Heading inside instructions */
 .qr-instructions h3 {
-  color: #007bff; /* Blue color */
+  color: #007bff; 
   margin-bottom: 1rem;
   font-size: 1.2rem;
 }
 
 /* Ordered list inside instructions */
 .qr-instructions ol {
-  padding-left: 1.5rem; /* Indent */
+  padding-left: 1.5rem; 
 }
 
 /* List items spacing */
@@ -107,8 +106,8 @@
 
 /* Error message box style */
 .error-message {
-  background-color: #f8d7da; /* Light red background */
-  color: #721c24; /* Dark red text */
+  background-color: #f8d7da; 
+  color: #721c24; 
   padding: 1rem;
   margin: 1.5rem 0;
   border-radius: 0.25rem;

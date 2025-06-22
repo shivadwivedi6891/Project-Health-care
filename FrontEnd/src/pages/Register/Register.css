@@ -16,9 +16,9 @@
 
 /* Card Styling */
 .register-card {
-  background-color: #ffffff; /* White card */
+  background-color: #ffffff; 
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   padding: 2rem;
 }
 
@@ -26,7 +26,7 @@
 .register-card h2 {
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #53394f; /* Primary color */
+  color: #53394f; 
 }
 
 /* Two-column Form Row */
@@ -57,7 +57,7 @@
 .form-control {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #dee2e6; /* Light gray border */
+  border: 1px solid #dee2e6; 
   border-radius: 0.25rem;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -65,7 +65,7 @@
 
 /* Input Focus State */
 .form-control:focus {
-  border-color: #53394f; /* Primary focus border */
+  border-color: #53394f; 
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   outline: none;
 }
@@ -95,7 +95,7 @@
 
 /* Footer Links */
 .register-footer a {
-  color: #53394f; /* Primary link color */
+  color: #53394f; 
   font-weight: 500;
 }
 

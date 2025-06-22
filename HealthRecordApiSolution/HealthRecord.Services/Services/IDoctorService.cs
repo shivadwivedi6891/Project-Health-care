@@ -7,6 +7,8 @@ namespace HealthRecord.Services
     {
         Task<int> RegisterDoctorAsync(RegisterDoctorDto doctorDto);
         // Task<int> LoginDoctorAsync(DocLoginDto docLoginDto);
-       
+        Task<Doctor> GetDoctorProfileAsync(int doctorId);
+
+        Task<List<Doctor>> GetAllDoctorsAsync();
     }
 }

@@ -58,14 +58,17 @@
 }
 
 .home-logo img {
-  width: 140px;
+  width: 20vh;
   height: auto;
   transition: transform 0.5s ease;
-  margin-left: 350px;
+  
+  margin-left: 45vh;
+  position: relative;
 }
 
 .home-logo img:hover {
   transform: scale(1.1) rotate(5deg);
+
 }
 
 .home-title {
@@ -277,6 +280,16 @@
   }
 
   .home-logo img {
-    width: 100px;
+    width: 100%;
+    .logo-img {
+  max-width: 100%;
+  height: auto;
+  width: 120px; 
+  display: block;
+  object-fit: contain;
+}
+
+     
+   
   }
 }

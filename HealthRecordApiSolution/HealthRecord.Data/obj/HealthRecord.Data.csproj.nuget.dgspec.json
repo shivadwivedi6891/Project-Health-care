@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj": {}
+    "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj": {}
   },
   "projects": {
-    "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj": {
+    "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj",
+        "projectUniqueName": "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj",
         "projectName": "HealthRecord.Data",
-        "projectPath": "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj",
+        "projectPath": "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Data\\HealthRecord.Data.csproj",
         "packagesPath": "C:\\Users\\dwive\\.nuget\\packages\\",
-        "outputPath": "D:\\FinalProjecttt\\HealthRecordApiSolution\\HealthRecord.Data\\obj\\",
+        "outputPath": "D:\\FinalProject\\HealthRecordApiSolution\\HealthRecord.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

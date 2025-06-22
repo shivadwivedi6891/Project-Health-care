@@ -9,5 +9,7 @@ namespace HealthRecord.Data.Repositories
         Task UpdateUserProfileAsync(User user);
         Task<User> GetEmergencyInfoAsync(int userId);
         Task<User> GetUserByEmailAsync(string email);
+
+        Task<IEnumerable<User>> GetAllUsersAsync();
     }
 }
