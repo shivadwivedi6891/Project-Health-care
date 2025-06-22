@@ -69,13 +69,13 @@ namespace HealthRecordApi.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
-        [HttpGet("PendingDoctors")]
-        public async Task<IActionResult> GetPendingDoctors()
-        {
-            var pendingDoctors = await _adminService.GetAllPenidingDoctorsAsync();
-            return Ok(pendingDoctors);
-        }
+        // [Authorize(Roles = "Admin")]
+        // [HttpGet("PendingDoctors")]
+        // public async Task<IActionResult> GetPendingDoctors()
+        // {
+        //     var pendingDoctors = await _adminService.GetAllPenidingDoctorsAsync();
+        //     return Ok(pendingDoctors);
+        // }
 
 
 // [Authorize(Roles = "Admin")]
