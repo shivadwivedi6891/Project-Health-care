@@ -21,7 +21,7 @@ namespace HealthRecord.Services
 
             var doctor = new Doctor
             {
-                Name = doctorDto.Name,
+                Name = doctorDto.Name ,
                 Email = doctorDto.Email,
                 Password = doctorDto.Password,
                 Specialization = doctorDto.Specialization,
@@ -31,6 +31,8 @@ namespace HealthRecord.Services
 
             return await _doctorRepository.RegisterDoctorAsync(doctor);
         }
+
+        
 
 
 

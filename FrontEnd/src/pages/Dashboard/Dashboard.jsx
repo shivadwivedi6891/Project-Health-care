@@ -76,6 +76,7 @@ if (error) {
 
   return (
     <div className="dashboard-page">
+      
       {console.log(authData.id)}
       <div className="dashboard-gradient">
         <div className="container dashboard-container">

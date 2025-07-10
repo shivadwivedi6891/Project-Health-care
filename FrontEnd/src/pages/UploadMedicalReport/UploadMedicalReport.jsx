@@ -62,7 +62,7 @@ const UploadMedicalReport = () => {
       data.append('reportFile', formData.reportFile);
 
       const response = await axios.post(
-        `http://localhost:5088/api/MedicalReport/upload/`, // ✅ userId used correctly
+        `http://localhost:5088/api/MedicalReport/upload/`, 
         data,
         {
           headers: {

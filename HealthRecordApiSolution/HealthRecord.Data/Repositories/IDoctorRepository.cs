@@ -14,6 +14,11 @@ namespace HealthRecord.Data.Repositories
 
         Task<IEnumerable<Doctor>> GetAllDocsAsync();
 
-        Task<IEnumerable<Doctor>> GetAllPendingDoctorsAsync();
+        Task<IEnumerable<Doctor>> GetUnapprovedDoctorsAsync();
+
+        Task<Doctor> GetDoctorByIdAsync(int doctorId);
+        
+        Task UpdateDoctorAsync(Doctor doctor);
+
     }
 }

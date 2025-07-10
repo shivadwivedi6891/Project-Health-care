@@ -61,7 +61,7 @@ namespace HealthRecord.Services
         // public async Task<IEnumerable<Doctor>> GetPendingDoctorsAsync()
         // {
         //     var doctors = await _doctorRepository.GetAllPendingDoctorsAsync();
-                                        
+
 
         //     return doctors.Select(d => new DoctorDto
         //     {
@@ -70,6 +70,34 @@ namespace HealthRecord.Services
         //         Email = d.Email
         //     });
         // }
+
+
+  public async Task<IEnumerable<DoctorDto>> GetUnapprovedDoctorsAsync()
+    {
+        var unapprovedDoctors = await _doctorRepository.GetUnapprovedDoctorsAsync();
+        
+        return unapprovedDoctors.Select(d => new DoctorDto
+        {
+            DoctorId = d.DoctorId,
+            Name = d.Name,
+            Email = d.Email,
+            Specialization = d.Specialization,
+            IsApproved = d.IsApproved
+        });
+    }
+
+    public async Task ApproveDoctorAsync(int doctorId)
+    {
+        var doctor = await _doctorRepository.GetDoctorByIdAsync(doctorId);
+        if (doctor == null)
+            throw new Exception("Doctor not found");
+
+        doctor.IsApproved = true;
+        await _doctorRepository.UpdateDoctorAsync(doctor);
+    }
+}
+
+
 
 
 
@@ -81,4 +109,3 @@ namespace HealthRecord.Services
     }
     
 
-}

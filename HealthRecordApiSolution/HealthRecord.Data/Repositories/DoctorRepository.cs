@@ -54,16 +54,34 @@ namespace HealthRecord.Data.Repositories
         {
             return await _context.Doctors.ToListAsync();
         }
-       
+
         public async Task<IEnumerable<Doctor>> GetAllDocsAsync()
-         {
+        {
             return await _context.Doctors.ToListAsync();
         }
-        public async Task<IEnumerable<Doctor>> GetAllPendingDoctorsAsync()
-         {
-            return await _context.Doctors.Where(b=> b.IsApproved==false)
+        public async Task<IEnumerable<Doctor>> GetUnapprovedDoctorsAsync()
+        {
+            return await _context.Doctors.Where(b => b.IsApproved == false)
             .ToListAsync();
 
         }
+
+
+        public async Task<Doctor> GetDoctorByIdAsync(int doctorId)
+        {
+            return await _context.Doctors.FindAsync(doctorId);
+
+        }
+
+
+        public async Task UpdateDoctorAsync(Doctor doctor)
+        {
+            _context.Doctors.Update(doctor);
+            await _context.SaveChangesAsync();
+
+
+        }
+
+
     }
 }

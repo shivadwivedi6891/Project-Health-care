@@ -69,6 +69,14 @@ useEffect(()=>{
                        </Link>
         
         </div>
+        <div className="admin-card">
+          <h3>Approve Doctors</h3>
+           
+           <Link to={`/admin/approve-doctors/`} className="btn-primary">
+                         Approve Doctors
+                       </Link>
+        
+        </div>
 
      
       </main>

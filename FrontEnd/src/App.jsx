@@ -28,9 +28,10 @@ import Doctor from './pages/Doctors/Doctor';
 import AdminDashboard from './pages/Dashboard/AdminDashboard';
 import AllUsers from './pages/Profile/AllUsers';
 import AllDoctors from './pages/Profile/AllDoctors';
+import ApproveDoctor from './pages/AdminAddHospital/ApproveDoctor';
 
 function App() {
-  const { user, logout, authData } = useAuth(); // ✅ from context
+  const { user, logout, authData } = useAuth(); 
 
     const [isDarkMode, setIsDarkMode] = useState(() => {
     
@@ -80,7 +81,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/admin/add-hospital" element={<AdminAddHospital />} />
 
-            {/* Optional: Short route to auto-redirect using userId */}
+            {/*  route to auto-redirect using userId */}
             <Route
               path="/dashboard"
               element={
@@ -92,7 +93,6 @@ function App() {
               }
             />
 
-            {/* ✅ Protected Routes */}
             <Route
               path="/dashboard/"
               element={
@@ -130,6 +130,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/approve-doctors/"
+              element={
+                <ProtectedRoute>
+                 <ApproveDoctor/>
                 </ProtectedRoute>
               }
             />

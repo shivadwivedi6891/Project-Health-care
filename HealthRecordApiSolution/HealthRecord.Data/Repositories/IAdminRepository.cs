@@ -12,5 +12,9 @@ namespace HealthRecord.Data.Repositories
 
         Task<Admin> GetAdminByEmailAsync(string email);
         Task<Admin> GetAdminProfileByIdAsync(int adminId);
+
+      
+
+
     }
 }

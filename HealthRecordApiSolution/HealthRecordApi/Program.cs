@@ -23,18 +23,18 @@ builder.Services.AddDbContext<HealthRecordContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
-    var jwtKey = builder.Configuration["JWTSecret:key"];
+var jwtKey = builder.Configuration["JWTSecret:key"];
 var jwtIssuer = builder.Configuration["JWTSecret:Issuer"];
 var jwtAudience = builder.Configuration["JWTSecret:Audience"];
 
-Console.WriteLine("Loaded JWT Config:");
-Console.WriteLine($"Key: {(string.IsNullOrEmpty(jwtKey) ? "NULL or EMPTY" : "✔ Loaded")}");
-Console.WriteLine($"Issuer: {jwtIssuer}");
-Console.WriteLine($"Audience: {jwtAudience}");
+// Console.WriteLine("Loaded JWT Config:");
+// Console.WriteLine($"Key: {(string.IsNullOrEmpty(jwtKey) ? "NULL or EMPTY" : " Loaded")}");
+// Console.WriteLine($"Issuer: {jwtIssuer}");
+// Console.WriteLine($"Audience: {jwtAudience}");
 
 if (string.IsNullOrEmpty(jwtKey) || string.IsNullOrEmpty(jwtIssuer) || string.IsNullOrEmpty(jwtAudience))
 {
-    throw new Exception("❌ JWT settings are missing or not loaded from appsettings.json!");
+    throw new Exception(" JWT settings are missing or not loaded from appsettings.json!");
 }
 
 
@@ -51,11 +51,7 @@ options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenVali
     ValidIssuer = builder.Configuration["JWTSecret:Issuer"],
     ValidAudience = builder.Configuration["JWTSecret:Audience"],
     
-
-
     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTSecret:key"]!))
-
-
 
 }
 
@@ -135,7 +131,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(); // <- this shows the Swagger UI in browser
+    app.UseSwaggerUI(); 
 }
 
 

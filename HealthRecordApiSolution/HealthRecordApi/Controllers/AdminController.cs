@@ -78,18 +78,39 @@ namespace HealthRecordApi.Controllers
         // }
 
 
-// [Authorize(Roles = "Admin")]
-// [HttpPut("ApproveDoctor/{doctorId}")]
-// public async Task<IActionResult> ApproveDoctor(int doctorId)
-// {
-//     var doctor = await _context.Doctors.FindAsync(doctorId);
-//     if (doctor == null)
-//         return NotFound();
+        // [Authorize(Roles = "Admin")]
+        // [HttpPut("ApproveDoctor/{doctorId}")]
+        // public async Task<IActionResult> ApproveDoctor(int doctorId)
+        // {
+        //     var doctor = await _context.Doctors.FindAsync(doctorId);
+        //     if (doctor == null)
+        //         return NotFound();
 
-//     doctor.IsApproved = true;
-//     await _context.SaveChangesAsync();
-//     return Ok(new { Message = "Doctor approved successfully" });
-// }
+        //     doctor.IsApproved = true;
+        //     await _context.SaveChangesAsync();
+        //     return Ok(new { Message = "Doctor approved successfully" });
+        // }
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("unapproved-doctors")]
+
+
+        public async Task<IActionResult> GetUnApprovedDoctorsAsync()
+        {
+            var doctors = await _adminService.GetUnapprovedDoctorsAsync();
+            return Ok(doctors);
+        }
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut("approve-doctor/{doctorId}")]
+        public async Task<IActionResult> ApproveDoctor(int doctorId)
+        {
+            await _adminService.ApproveDoctorAsync(doctorId);
+            return Ok(new { message = "Doctor approved successfully." });
+        }
+
 
 
 

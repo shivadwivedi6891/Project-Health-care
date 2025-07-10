@@ -7,6 +7,7 @@ namespace HealthRecord.Data.Repositories
     {
 
         private readonly HealthRecordContext _context;
+        
 
         public AdminRepository(HealthRecordContext context)
         {

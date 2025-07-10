@@ -31,11 +31,7 @@ const Login = () => {
       console.log("id",userData.id);
       
 
-      // if (userData.role === 'Doctor') {
-      //   navigate(`/docDashboard/${userData.id}`);
-      // } else {
-      //   navigate(`/dashboard/${userData.id}`); 
-      // }
+    
       if (userData.role === 'Doctor') {
   navigate(`/docDashboard/${userData.id}`);
 } else if (userData.role === 'Admin') {

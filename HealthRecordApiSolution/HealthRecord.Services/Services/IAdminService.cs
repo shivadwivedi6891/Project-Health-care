@@ -14,6 +14,11 @@ namespace HealthRecord.Services
         // Task<IEnumerable<Doctor>> GetPendingDoctorsAsync();
 
 
+        Task<IEnumerable<DoctorDto>> GetUnapprovedDoctorsAsync();
+        Task ApproveDoctorAsync(int doctorId);
+        
+
+
 
     }
 }
